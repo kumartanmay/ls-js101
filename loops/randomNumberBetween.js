@@ -25,11 +25,11 @@ function randomNumberBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-let result = randomNumberBetween(1, 6)
-for (let tries = 0; result < 2; ++tries) {
+let tries = 0;
+let result = 0;
+
+for (tries = 1; result <= 2; ++tries) {
   result = randomNumberBetween(1,6);
-  if(result > 2) {
-    console.log(`It took ` + String(tries) + ' tries to get a number greater than 2: ' + result);
-    break;
-  }
 }
+
+console.log('It took ' + String(tries) + ' tries to get a number greater than 2');
