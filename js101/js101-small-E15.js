@@ -72,3 +72,8 @@ for (let ctr = 1; ctr <= number; ctr++) {
 }
 
 input === 's'? console.log(`The sum of numbers between 1 and ${number} is: ${sResult}`) : console.log(`The product of numbers between 1 and ${number} is: ${pResult}`)
+
+/*
+Without the break statement, the code will execute the next case (or even default case) 
+even if the value of the clause does not match. This is called fall-through.
+*/
