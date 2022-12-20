@@ -37,6 +37,12 @@ console.log(oddities(["abc", "def"])); // logs ['abc']
 console.log(oddities([123])); // logs [123]
 console.log(oddities([])); // logs []
 
+console.log(eventies([2, 3, 4, 5, 6])); // logs [3, 5]
+console.log(eventies([1, 2, 3, 4, 5, 6])); // logs [2, 4, 6]
+console.log(eventies(["abc", "def"])); // logs ['def']
+console.log(eventies([123])); // logs []
+console.log(eventies([])); // logs []
+
 function oddities (array) {
   let result = [];
 
@@ -46,4 +52,14 @@ function oddities (array) {
   }
 
   return result;
+}
+
+function eventies (array) {
+  let evenElements = [];
+
+  for(let index = 1; index < array.length; index += 2) {
+    evenElements.push(array[index]);
+  }
+
+  return evenElements;
 }
