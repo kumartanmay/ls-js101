@@ -71,5 +71,14 @@ calculator();
 function anotherCalculation() {
   let anotherCalc = rlSync.question('Do you want to perform another calculation? (y/n) ');
   console.log(anotherCalc);
+  
+  //return anotherCalc === 'y' || 'Y' ? calculator() : false; 
+  // -> is always a truthy statement. Hence it will never break out of the function.
+  //A better implementation is: 
+  //return ((anotherCalc === 'y') || (anotherCalc === 'Y')) ? calculator() : false;
+  // Or,
   return (anotherCalc !== 'y') ? false : calculator();
 }
+
+//the first operand will evaluate to falsy only when it is either of 0, or -0, or 0n, or "" , 
+//or null , or undefined , or NaN.
