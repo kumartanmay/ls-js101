@@ -26,8 +26,11 @@ DATA STRUCTURE AND ALGORITHM:
 */
 
 let rlSync = require('readline-sync');
+//const MESSAGE = require('./calculator_messages.json');
+//prompt(MESSAGE['es']['welcome']);
 
 function calculator() {
+  
   let operand1 = Number(rlSync.question("Please enter the first number: "));
   let operand2 = Number(rlSync.question("Please enter the second number: "));
   let operation = rlSync.question("What operation do you want to perform? \nPlease enter \n1 for Addition \n2 for Subtraction \n3 for Multiplication \n4 for Division \n");
@@ -67,5 +70,6 @@ calculator();
 
 function anotherCalculation() {
   let anotherCalc = rlSync.question('Do you want to perform another calculation? (y/n) ');
-  return (anotherCalc === 'y' || 'Y') ? calculator() : false;
+  console.log(anotherCalc);
+  return (anotherCalc !== 'y') ? false : calculator();
 }
