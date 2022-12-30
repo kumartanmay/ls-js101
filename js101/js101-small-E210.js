@@ -18,12 +18,16 @@ If the age is less than 20, then call the function again.
 
 function age(max) {
   return Math.floor(Math.random()* max);
+  //return Math.round(Math.random() * max);
 }
 
 function teddysAge(max) {
   let teddysAge = age(max);
   if (teddysAge < 20) {
     teddysAge = age(max);
+  }
+  else if (teddyAge = undefined) {
+    return `UNDEFINED! ${age(max)}`;
   }
   else return `Teddy is ${teddysAge} years old`;
 }
