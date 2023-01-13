@@ -30,10 +30,26 @@ Mental model: implicit coercion - subtract the string with itself and check if t
 console.log(stringToInteger("4321") === 4321); // logs true
 console.log(stringToInteger("570") === 570); // logs true
 
+/*
+THIS IS WORKING FOR DECIMAL NUMBERS
 function stringToInteger(str) {
   let convStr = str / str;
   //console.log(convStr);
   str = str * convStr;
   //console.log(typeof(str));
   return str;
+}
+*/
+
+function stringToInteger(str) {
+  let value = 0;
+  let arrayOfNumbers = str.split("");
+  console.log(arrayOfNumbers)
+  const strlen = str.length;
+  //console.log(strlen)
+  for (let i = 0; i < strlen; i++) {
+    value = value * 10 + arrayOfNumbers[i];
+    console.log(value)
+  }
+  return value;
 }
