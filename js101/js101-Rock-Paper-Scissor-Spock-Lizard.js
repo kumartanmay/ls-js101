@@ -48,11 +48,21 @@ while (gameNumber < MAX_GAMES) {
   else if (result === "Computer wins") {computerScore += 1};
 
   console.log(`Score after ${gameNumber}: You = ${myScore}; Computer: ${computerScore}`)
+// if it is the fifth game, then print the megawinner
+// Often one or two of the five ends in a tie, then we don't get a megawinner.
+// Hence I decided to get a megawinner despite winning 3 of the five games.
+if (gameNumber === 5) {
+  if (myScore > computerScore) {console.log("You are the megawinner!");}
+  else if (computerScore > myScore) {console.log("Computer is the megawinner!");}
+  else console.log("WE have a MEGATIE!");
+}
 
+/*
   if (myScore === 3 || computerScore === 3) {
     if (myScore ===3) prompt("You are the megawinner");
     else prompt("Computer is the megawinner!")
   }
+*/
 
   /* switching off to accomodate best of five games
   let playAgain = rlSync.question("Do you want to play again? (y/n): ").toLowerCase();
