@@ -12,26 +12,38 @@ Lizard poisons spock and eats paper
 const rlSync = require('readline-sync');
 const LIST = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
 
+let myScore = 0;
+let computerScore = 0;
+
 function prompt (message) {
   console.log(`=> ${message}`);
 }
 
 prompt("Welcome to the game of Rock Paper Scissor Spock Lizard!");
 
-prompt(`please choose one from: ${LIST.join(", ")}`);
+while (true) {
+  prompt(`please choose one from: ${LIST.join(", ")}`);
 
-let myChoice = rlSync.question();
+  let myChoice = rlSync.question();
 
-// if we use if instead of while-loop then this block will only execute once. The loop ensures that
-// user input is valid and then only computer gets it chance to play
+  // if we use if instead of while-loop then this block will only execute once. The loop ensures that
+  // user input is valid and then only computer gets it chance to play
 
-while (!LIST.includes(myChoice)) {
-  prompt("Invalid input!");
-  myChoice = rlSync.question("Please enter again: ");
+  while (!LIST.includes(myChoice)) {
+    prompt("Invalid input!");
+    myChoice = rlSync.question("Please enter again: ");
+  }
+
+  let computersChoice = LIST[Math.floor(Math.random() * LIST.length)];
+  console.log(`Your choice is ${myChoice} and computer is ${computersChoice}`);
+
+  console.log(rockPaperScissorsSpockLizard(myChoice, computersChoice));
+
+  let playAgain = rlSync.question("Do you want to play again? (y/n): ").toLowerCase();
+  if (playAgain[0] !== 'y') {
+    break;
+  }
 }
-
-let computersChoice = LIST[Math.floor(Math.random() * LIST.length)];
-console.log(`Your choice is ${myChoice} and computer is ${computersChoice}`);
 
 function rockPaperScissorsSpockLizard (playerOne, playerTwo) {
   if ((playerOne === "rock" && playerTwo === "scissors") ||
@@ -59,6 +71,5 @@ function rockPaperScissorsSpockLizard (playerOne, playerTwo) {
       } else {
         return "Its a tie!";
       }
-} 
 
-console.log(rockPaperScissorsSpockLizard(myChoice, computersChoice));
+} 
