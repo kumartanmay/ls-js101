@@ -11,9 +11,12 @@ Lizard poisons spock and eats paper
 
 const rlSync = require('readline-sync');
 const LIST = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
+const MAX_GAMES = 5;
 
 let myScore = 0;
 let computerScore = 0;
+let gameNumber = 0;
+let result = '';
 
 function prompt (message) {
   console.log(`=> ${message}`);
@@ -21,7 +24,7 @@ function prompt (message) {
 
 prompt("Welcome to the game of Rock Paper Scissor Spock Lizard!");
 
-while (true) {
+while (gameNumber < MAX_GAMES) {
   prompt(`please choose one from: ${LIST.join(", ")}`);
 
   let myChoice = rlSync.question();
@@ -36,16 +39,30 @@ while (true) {
 
   let computersChoice = LIST[Math.floor(Math.random() * LIST.length)];
   console.log(`Your choice is ${myChoice} and computer is ${computersChoice}`);
+  
+  gameNumber += 1;
+  console.log(`Game Number: ${gameNumber}`)
+  result = (rockPaperScissorsSpockLizard(myChoice, computersChoice));
 
-  console.log(rockPaperScissorsSpockLizard(myChoice, computersChoice));
+  if (result === "YOU WIN!") myScore += 1;
+  else if (result === "Computer wins") {computerScore += 1};
 
+  console.log(`Score after ${gameNumber}: You = ${myScore}; Computer: ${computerScore}`)
+
+  if (myScore === 3 || computerScore === 3) {
+    if (myScore ===3) prompt("You are the megawinner");
+    else prompt("Computer is the megawinner!")
+  }
+
+  /* switching off to accomodate best of five games
   let playAgain = rlSync.question("Do you want to play again? (y/n): ").toLowerCase();
   if (playAgain[0] !== 'y') {
     break;
   }
+  */
 }
 
-function rockPaperScissorsSpockLizard (playerOne, playerTwo) {
+function rockPaperScissorsSpockLizard (playerOne, playerTwo, playerOneScore, playerTwoScore) {
   if ((playerOne === "rock" && playerTwo === "scissors") ||
       (playerOne === "rock" && playerTwo === "lizard") || 
       (playerOne === "paper" && playerTwo === "rock") ||
@@ -67,7 +84,7 @@ function rockPaperScissorsSpockLizard (playerOne, playerTwo) {
       (playerTwo === "spock" && playerOne === "scissors") ||
       (playerTwo === "lizard" && playerOne === "paper") ||
       (playerTwo === "lizard" && playerOne === "spock")) {
-        return "Computer wins!";
+        return "Computer wins";
       } else {
         return "Its a tie!";
       }
