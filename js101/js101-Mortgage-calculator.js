@@ -64,7 +64,7 @@ prompt('Welcome to Loan Mortgage Calculator!');
 
 const loanAmount = Number(rlsync.question("What is the loan amount?: "));
 const annualPercentageRate = Number(rlsync.question("What is the APR in percentage?: "));
-const loanDuration = Number(rlsync.question("What is the loan duration in years?: ")); 
+const loanDuration = Number(rlsync.question("What is the loan duration in years?: "));
 
 const monthlyInterestRate = annualPercentageRate / 12;
 const loanDurationMonths = loanDuration * 12;
