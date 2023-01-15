@@ -23,11 +23,12 @@ function prompt (message) {
 }
 
 prompt("Welcome to the game of Rock Paper Scissor Spock Lizard!");
+prompt("=======================================================");
 
 while (gameNumber < MAX_GAMES) {
   prompt(`please choose one from: ${LIST.join(", ")}`);
 
-  let myChoice = rlSync.question();
+  let myChoice = rlSync.question().toLowerCase();
 
   // if we use if instead of while-loop then this block will only execute once. The loop ensures that
   // user input is valid and then only computer gets it chance to play
@@ -44,16 +45,24 @@ while (gameNumber < MAX_GAMES) {
   console.log(`Game Number: ${gameNumber}`)
   result = (rockPaperScissorsSpockLizard(myChoice, computersChoice));
 
-  if (result === "YOU WIN!") myScore += 1;
-  else if (result === "Computer wins") {computerScore += 1};
+  if (result === "YOU WIN!") {
+    myScore += 1;
+  }
+  else if (result === "Computer wins") {
+    computerScore += 1
+  };
 
   console.log(`Score after ${gameNumber}: You = ${myScore}; Computer: ${computerScore}`)
 // if it is the fifth game, then print the megawinner
 // Often one or two of the five ends in a tie, then we don't get a megawinner.
 // Hence I decided to get a megawinner despite winning 3 of the five games.
 if (gameNumber === 5) {
-  if (myScore > computerScore) {console.log("You are the megawinner!");}
-  else if (computerScore > myScore) {console.log("Computer is the megawinner!");}
+  if (myScore > computerScore) {
+    console.log("You are the megawinner!");
+  }
+  else if (computerScore > myScore) {
+    console.log("Computer is the megawinner!");
+  }
   else console.log("WE have a MEGATIE!");
 }
 
