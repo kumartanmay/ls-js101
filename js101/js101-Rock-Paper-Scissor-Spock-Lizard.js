@@ -37,7 +37,7 @@ const GAME_ROUNDS = ['1', '5'];
 prompt("Welcome to the game of Rock Paper Scissor Spock Lizard!");
 prompt("=======================================================");
 
-let rounds = gameRounds();
+gameRounds();
 
 repeatGame();
 
@@ -92,17 +92,17 @@ function singleRoundGame() {
 
 function megaWinner(playerOneScore, playerTwoScore, gameCount) {
   if ( playerOneScore === 3 || playerTwoScore === 3 || gameCount === 5) {
-      if (playerOneScore > playerTwoScore) {
-        console.log("YOU are the megawinner!");
-        return;
-      } else if (playerTwoScore > playerOneScore) {
-        console.log("COMPUTER is the megawinner!");
-        return;
-      } else {
-        console.log("We have a MEGATIE!");
-        return;
-      }
+    if (playerOneScore > playerTwoScore) {
+      console.log("YOU are the megawinner!");
+      return;
+    } else if (playerTwoScore > playerOneScore) {
+      console.log("COMPUTER is the megawinner!");
+      return;
+    } else {
+      console.log("We have a MEGATIE!");
+      return;
     }
+  }
 }
 // Scores at the end of each round
 function roundOfFive(count) {
