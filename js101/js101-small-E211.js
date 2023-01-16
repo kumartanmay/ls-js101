@@ -27,7 +27,7 @@ const rlSync = require("readline-sync");
 
 const age = Number(rlSync.question("What is your age? "));
 const retirementAge = Number(rlSync.question("At what age would you like to retire? "));
-const currentYear = 2022;
+const currentYear = new Date().getFullYear();
 const yearsToRetire = retirementAge - age;
 console.log();
 
