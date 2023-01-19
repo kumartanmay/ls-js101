@@ -21,6 +21,7 @@ All the inputs will be whole number only.
 Data Structure:
 ---------------
 Convert all user input into numbers.
+get current year from Date constructor.
 */
 
 const rlSync = require("readline-sync");
