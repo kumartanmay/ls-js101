@@ -39,7 +39,7 @@ prompt("=======================================================");
 
 gameRounds();
 
-repeatGame();
+//repeatGame();
 
 
 function prompt (message) {
@@ -70,7 +70,7 @@ function playerOneChoice() {
   
   while (!LIST.includes(myChoice)) {
     prompt("Invalid input!");
-    myChoice = rlSync.question("Please enter again: ");
+    myChoice = rlSync.question("Please enter again: ").toLowerCase();
   }
   return myChoice;
 }
@@ -88,20 +88,19 @@ function singleRoundGame() {
   let computersChoice = displayChoices(myChoice);
   let result = theGameLogic(myChoice, computersChoice);
   console.log(result);
+  repeatGame();
 }
 
 function megaWinner(playerOneScore, playerTwoScore, gameCount) {
   if ( playerOneScore === 3 || playerTwoScore === 3 || gameCount === 5) {
     if (playerOneScore > playerTwoScore) {
       console.log("YOU are the megawinner!");
-      return;
     } else if (playerTwoScore > playerOneScore) {
       console.log("COMPUTER is the megawinner!");
-      return;
     } else {
       console.log("We have a MEGATIE!");
-      return;
     }
+    repeatGame();
   }
 }
 // Scores at the end of each round
@@ -111,7 +110,7 @@ function roundOfFive(count) {
   let computerScore = 0;
   let result = '';
 
-  while (gameNumber < Number(count)) {
+  while (gameNumber < Number(count) && myScore < 3 && computerScore < 3) {
     gameNumber += 1;
 
     let myChoice = playerOneChoice();
@@ -127,7 +126,7 @@ function roundOfFive(count) {
     console.log(`Game Number: ${gameNumber}: `);
     console.log(`My Score: ${myScore}`);
     console.log(`Computer Score: ${computerScore}`);
-    console.log(megaWinner(myScore, computerScore, gameNumber));
+    megaWinner(myScore, computerScore, gameNumber);
   }
 }
 
@@ -140,7 +139,7 @@ function repeatGame() {
     console.clear();
     console.log(`Yay! Let us play again!`);
     console.log(`=======================`);
-    console.log(gameRounds());
+    gameRounds();
   }
 }
 /*
