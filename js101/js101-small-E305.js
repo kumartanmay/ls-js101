@@ -40,8 +40,7 @@ Algo:
 function triangle(number) {
   let result = '';
   for (let index = 1; index <= number; index += 1) {
-    //result += printSpecialChars(' ', number - index);
-    result = result + printWhiteSpaces(number - index) + printSpecialChars('*', index);
+    result = result + printSpecialChars(' ', number - index) + printSpecialChars('*', index) + '\n';
   }
   return result;
 }
@@ -51,17 +50,8 @@ function printSpecialChars(char, num) {
   for (let spaceIndex = 0; spaceIndex < num; spaceIndex += 1) {
     result += char;
   }
-  result += '\n';
   return result;
 }
 
-function printWhiteSpaces(num) {
-  let whiteSpace = ' ';
-  for (let index = 0; index < num; index += 1) {
-    whiteSpace += ' ';
-  }
-  //whiteSpace += '\n';
-  return whiteSpace;
-}
-
+console.log(triangle(5));
 console.log(triangle(9));
