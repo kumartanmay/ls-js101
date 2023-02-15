@@ -54,28 +54,40 @@ function century(year) {
 
 function appendCentury (yearCentury) {
   console.log(yearCentury % 100);
-  switch(yearCentury % 10) {
-    case 11:
-      yearCentury += 'th';
-      break;
-    case 12:
-      yearCentury += 'th';
-      break;
-    case 13:
-      yearCentury += 'th';
-      break;
-    case 1:
-      yearCentury += 'st';
-      break;
-    case 2:
-      yearCentury += 'nd';
-      break;
-    case 3:
-      yearCentury += 'rd';
-      break;
-    default:
-      yearCentury += 'th';
-      break;
+  let remainder = yearCentury % 100;
+  if (remainder < 20) {
+    // 1,2,3 = 1st, 2nd, 3rd
+    // teens + th
+    switch(remainder) {
+      case 1:
+        yearCentury += 'st';
+        break;
+      case 2:
+        yearCentury += 'nd';
+        break;
+      case 3:
+        yearCentury += 'rd';
+        break;
+      default:
+        yearCentury += 'th';
+        break;
+    }
+  } else {
+    let remainder10 = remainder % 10;
+    switch(remainder10) {
+      case 1:
+        yearCentury += 'st';
+        break;
+      case 2:
+        yearCentury += 'nd';
+        break;
+      case 3:
+        yearCentury += 'rd';
+        break;
+      default:
+        yearCentury += 'th';
+        break;
+    }
   }
   return yearCentury;
 }
@@ -88,7 +100,9 @@ century(1965);        // "20th"
 century(256);         // "3rd"
 century(5);           // "1st"
 century(10103);       // "102nd"
-century(11103);       // "102nd"
+century(11103);       // "112th"
 century(1052);        // "11th"
 century(1127);        // "12th"
 century(11201);       // "113th"
+century(12001);       // "121st"
+century(12101);       // "122nd"
