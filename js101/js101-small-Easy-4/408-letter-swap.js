@@ -25,10 +25,10 @@ function swap(sentence) {
   if (words.length > 1) {
     words[0] = reverseWord(words[0]);
     words[words.length - 1] = reverseWord(words[words.length - 1]);
-    return words.join(" ");
   } else {
     return reverseWord(sentence);
   }
+  return words.join(" ");
 }
 
 
