@@ -24,12 +24,10 @@ function wordSizes(string) {
       wordSizeObject[arrayOfSizeOfWords[i]] ? wordSizeObject[arrayOfSizeOfWords[i]] += 1 : wordSizeObject[arrayOfSizeOfWords[i]] = 1;
   }
   }
-  
-
   return wordSizeObject;
 }
 
 console.log(wordSizes('Four score and seven.'));
-console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 3 })
+console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!')); 
 console.log(wordSizes("What's up doc?"));
 console.log(wordSizes(''));
