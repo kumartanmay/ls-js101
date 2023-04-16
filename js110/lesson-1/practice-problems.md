@@ -188,3 +188,35 @@ console.log(min);
 ```
 
 -----
+
+Q11.
+Create an object that expresses the frequency with which each letter occurs in this string:
+```javascript
+let statement = "The Flintstones Rock";
+
+// Output will look something like this:
+{ T: 1, h: 1, e: 2, F: 1, l: 1, ... }
+
+```
+
+Ans:
+```javascript
+let statement = "The Flintstones Rock";
+
+function freqLetters (stmt) {
+  let objLetters = {};
+  let arrayLetters = stmt.split("");
+
+  arrayLetters.forEach(elem => {
+    if(objLetters[elem]) {
+      objLetters[elem] += 1;
+    } else {
+      objLetters[elem] = 1;
+    }
+  });
+  
+  return objLetters;
+}
+
+console.log(freqLetters(statement));
+```
