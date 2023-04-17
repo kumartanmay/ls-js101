@@ -14,6 +14,7 @@ halvsies([]);                 // [[], []]
 
 function halvsies(array) {
   const result = [[], []];
+  
 
   if (array.length % 2 === 1) {
     for (let i = 0; i < Math.ceil(array.length/2); i++){
