@@ -26,3 +26,9 @@ for (let member in munsters) {
   }
 }
 console.log(totalAge); 
+
+// alternate solution
+
+let munstersValues = Object.values(munsters);
+let sum = munstersValues.filter(elem => elem.gender === 'male').map(value => value.age).reduce((a,b)=> a +b);
+console.log(sum);
