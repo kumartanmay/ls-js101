@@ -32,3 +32,15 @@ console.log(totalAge);
 let munstersValues = Object.values(munsters);
 let sum = munstersValues.filter(elem => elem.gender === 'male').map(value => value.age).reduce((a,b)=> a +b);
 console.log(sum);
+
+
+/*
+Print
+
+(Name) is a (age)-year-old (male or female).
+
+*/
+
+for (let member in munsters) {
+  console.log(`${member} is a ${munsters[member].age} year-old ${munsters[member].gender}.`);
+  }
