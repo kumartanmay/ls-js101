@@ -28,12 +28,16 @@ Data Structure & Algo:
   5. use the indices of sub arrays to map
 */
 
-let arr = [[1, 6, 7], [1, 5, 3], [1, 8, 3]];
-let indicesOfOdds = {};
+function sortFilteredArray(arr) {
+  let indicesOfOdds = {};
 
-arr.sort((a,b) => {
-  let sumOfAs = a.filter(elem => elem % 2 === 1).reduce((sum, ini) => sum + ini);
-  let sumofBs = b.filter(elem => elem % 2 === 1).reduce((sum, ini) => sum + ini);
-  return sumOfAs - sumofBs;
-})
-console.log(arr);
+  arr.sort((a,b) => {
+    let sumOfAs = a.filter(elem => elem % 2 === 1).reduce((sum, ini) => sum + ini);
+    let sumofBs = b.filter(elem => elem % 2 === 1).reduce((sum, ini) => sum + ini);
+    return sumOfAs - sumofBs;
+  })
+  return arr;
+}
+
+console.log(sortFilteredArray([[1, 6, 7], [1, 5, 3], [1, 8, 3]]));
+console.log(sortFilteredArray([[1, 6, -3], [1, 5, 3], [1, 8, 3]]));
