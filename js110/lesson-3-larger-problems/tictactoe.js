@@ -76,7 +76,7 @@ function computerBoardMark (board) {
 }
 
 function isFull(board) {
-  return !!emptySquares(board).length === 0;
+  return emptySquares(board).length === 0;
 }
 
 function someoneWon(board) {
@@ -173,8 +173,8 @@ function joinOr(arr, delimiter = ", ", joinWord = "or ") {
   return result;
 }
 
-console.log(joinOr([1, 2, 3],"; ", "and "));
-console.log(joinOr([1, 2]));
-console.log(joinOr([]));
-console.log(joinOr([5]));
+//console.log(joinOr([1, 2, 3],"; ", "and "));
+//console.log(joinOr([1, 2]));
+//console.log(joinOr([]));
+//console.log(joinOr([5]));
 
