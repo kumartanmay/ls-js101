@@ -48,7 +48,8 @@ function userBoardMark (board) {
   let userMark;
 
   while(true) {
-    prompt(`Choose the square you want to mark: ${emptySquares(board).join(", ")} `);
+    //prompt(`Choose the square you want to mark: ${emptySquares(board).join(", ")} `);
+    prompt(`Choose the square you want to mark: ${joinOr(emptySquares(board))} `);
     userMark = rlsync.question();
 
     if(emptySquares(board).includes(userMark)) break; 
@@ -132,3 +133,48 @@ if (someoneWon(board)) {
 } else {
   console.log(`it's a tie!`);
 }
+
+/*
+joinOr([1, 2, 3]);               // => "1, 2, or 3"
+joinOr([1, 2, 3], '; ');         // => "1; 2; or 3"
+joinOr([1, 2, 3], ', ', 'and');  // => "1, 2, and 3"
+joinOr([]);                      // => ""
+joinOr([5]);                     // => "5"
+joinOr([1, 2]);                  // => "1 or 2"
+
+Problem
+1. Add delimiter and joining word 
+
+What do we have:
++ An array of numbers
++ Delimiter and joining word applies only to elements in the outer level; the nested elements remain
++ Default delimiter is comma (,)
++ Default joining word is "or"
+
+Data Structure and Algo:
+======================== 
++ Input: Array
++ Output: String
++ Each element of the array will be appended to a string, one at a time and separated by delimiter
++ If it is last elemet of the array, then joining word replaces the delimiter
++ append the last element of the array to the string
+*/
+
+function joinOr(arr, delimiter = ", ", joinWord = "or ") {
+  let result = "";
+
+  arr.forEach((elem, index) => {
+    if(index < arr.length - 1) {
+      result += elem + delimiter;
+    } else if((arr.length - 1) !== 0) {
+        result += joinWord + elem;
+      } else result += elem;
+  });
+  return result;
+}
+
+console.log(joinOr([1, 2, 3],"; ", "and "));
+console.log(joinOr([1, 2]));
+console.log(joinOr([]));
+console.log(joinOr([5]));
+
