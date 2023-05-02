@@ -11,6 +11,7 @@ interleave([1, 2, 3], ['a', 'b', 'c']);    // [1, "a", 2, "b", 3, "c"]
 
 */
 
+/*
 function interleave(arrA, arrB) {
   let result = [];
 
@@ -19,6 +20,15 @@ function interleave(arrA, arrB) {
       result = result.concat(arrA[i], arrB[i]);
     }
   }
+  return result;
+}
+*/
+
+function interleave(arrA, arrB) {
+  let result = [];
+  arrA.forEach((elem, index) => {
+    result.push(elem, arrB[index]);
+  })
   return result;
 }
 
