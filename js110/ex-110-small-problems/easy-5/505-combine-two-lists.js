@@ -36,6 +36,9 @@ function interleave(arrA, arrB) {
 }
 */
 
+
+//using map method
+/*
 function interleave(arrA, arrB) {
   let result = [];
   arrA.map((elem, index) => {
@@ -43,4 +46,16 @@ function interleave(arrA, arrB) {
   })
   return result;
 }
+*/
+
+function interleave(arrA, arrB) {
+  let newArr = arrA.reduce((acc, cur, index) => {
+    //console.log(acc);
+    acc.push(cur);
+    acc.push(arrB[index]);
+    return acc;
+  }, []);
+  return newArr;
+}
+
 console.log(interleave([1, 2, 3], ['a', 'b', 'c']));
