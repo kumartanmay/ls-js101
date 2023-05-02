@@ -24,6 +24,9 @@ function interleave(arrA, arrB) {
 }
 */
 
+/*
+same result using forEach
+
 function interleave(arrA, arrB) {
   let result = [];
   arrA.forEach((elem, index) => {
@@ -31,5 +34,13 @@ function interleave(arrA, arrB) {
   })
   return result;
 }
+*/
 
+function interleave(arrA, arrB) {
+  let result = [];
+  arrA.map((elem, index) => {
+    result.push(elem, arrB[index]);
+  })
+  return result;
+}
 console.log(interleave([1, 2, 3], ['a', 'b', 'c']));
