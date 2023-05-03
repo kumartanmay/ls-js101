@@ -19,6 +19,7 @@ motorcycle => 2
 function countOccurrences (arr) {
   let result = {};
   arr.forEach(elem => {
+    elem = elem.toLowerCase();
     return result[elem] ? result[elem] += 1 : result[elem] = 1;
   })
   return result;
