@@ -17,37 +17,47 @@ console.log(timeOfDay(800) === "13:20");
 console.log(timeOfDay(-4231) === "01:29");
 */
 
-const MINUTES_IN_A_DAY = 24*60;
+
 const MINUTES_IN_AN_HOUR = 60;
 const HOURS_IN_A_DAY = 24;
+const MINUTES_IN_A_DAY = HOURS_IN_A_DAY * MINUTES_IN_AN_HOUR;
+const DAYS_IN_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+//let refTime = new Date();
+//refTime.setHours(0,0,0);
+
 
 function timeOfDay(num) {
+  
+  let days = Math.floor(num / MINUTES_IN_A_DAY);
   // when num > 1440; restart the counter after subtracting from 1440 until the number is < 1440
   // when num < 0; 
   // when num < -1440
   while (num > 1440) {
     num = num - 1440;
     while (num<1440){
-      return timeAfterMidnight(num);
+      return timeAfterMidnight(days, num);
     }
   }
 
   while (num < 0) {
     num = 1440 + num;
     while (num > 0) {
-      return timeAfterMidnight(num);
+      days = DAYS_IN_WEEK.length + days;
+      return timeAfterMidnight(days, num);
     }
   }
 
-  return timeAfterMidnight(num);
+  return timeAfterMidnight(days, num);
 }
 
-function timeAfterMidnight(num) {
-  let hours = Math.floor(num / 60).toString();
+function timeAfterMidnight(days, num) {
+  let hours = Math.floor(num / MINUTES_IN_AN_HOUR).toString();
   let minutes = (num - hours* MINUTES_IN_AN_HOUR).toString();
+
   if (hours.length === 1) hours = '0' + hours;
   if (minutes.length === 1) minutes = '0' + minutes;
-  return `${hours}:${minutes}`;
+  let dayOfWeek = DAYS_IN_WEEK[days];
+  return `${dayOfWeek} ${hours}:${minutes}`;
 }
 
 console.log(timeOfDay(0));
