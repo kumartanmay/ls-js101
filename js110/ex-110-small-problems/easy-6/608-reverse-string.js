@@ -19,6 +19,8 @@ function reverseWords(sentence) {
     return word;
   });
 
+  console.log(sentence);
+
   console.log(words.join(" "));
 }
 
