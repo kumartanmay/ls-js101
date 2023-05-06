@@ -43,6 +43,7 @@ function substrings(str) {
   for(let i = 0; i < str.length; i++) {
     result.push(leadingSubstrings(str.slice(i)));
   }
+  // flat method concatenates all the subarrays into a new array upto the specified depth. Default depth is 1.
   return result.flat();
 }
 
