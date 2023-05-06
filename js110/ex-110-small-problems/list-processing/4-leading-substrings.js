@@ -16,11 +16,14 @@ function leadingSubstrings(str) {
   */
 
   let arrayOfCharsInString = str.split(""); // [a, b, c]
-  let result = [arrayOfCharsInString[0]];
+  let result = [arrayOfCharsInString.shift()];
 
+  arrayOfCharsInString.map((elem, index) => result[index+1] = result[index] + elem);
+  /*
   for(let i = 1; i < arrayOfCharsInString.length; i++) {
     result[i] = result[i - 1] + arrayOfCharsInString[i]; 
   }
+  */
 
   return result;
 }
