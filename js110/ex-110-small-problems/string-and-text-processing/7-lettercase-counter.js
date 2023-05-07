@@ -14,7 +14,10 @@ letterCaseCount('');            // { lowercase: 0, uppercase: 0, neither: 0 }
 function letterCaseCount(str) {
   let strArr = str.split("");
   let count = {lowercase: 0, uppercase: 0, neither: 0}
-
+/*
+The solution uses a regex to match alphabets from the arr. When an alphabet is identified, it determines its case.
+When the char of strArr is not an alphabet then neither property of count object is incremented by 1.
+*/
   strArr.forEach(elem => {
     if (elem.match(/[A-Za-z]/)) {
       if(elem === elem.toLowerCase()) count['lowercase'] += 1;
