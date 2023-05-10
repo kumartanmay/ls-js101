@@ -17,7 +17,8 @@ Output:
  - String
 */
 
-//const numberWord = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+const numberWord = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+/*
 const numberObj = {
   zero: 0, 
   one: 1,
@@ -30,15 +31,17 @@ const numberObj = {
   eight: 8,
   nine: 9
 };
+*/
 
 function wordToDigit(sentence) {
-
-  Object.keys(numberObj).forEach(word => {
-    // console.log(word);
-    sentence = sentence.replaceAll(word, numberObj[word]);
-  });
+  for (let i = 0; i < numberWord.length; i++) {
+    let word = numberWord[i];
+    regex = new RegExp('\\b' + word + '\\b', 'g');
+    sentence = sentence.replaceAll(regex, i);
+  }
   
   return sentence;
 }
 
 console.log(wordToDigit('Please call me at five five five one two three four. Thanks.'));
+console.log(wordToDigit('The weight is done.'));      // "The w8 is d1.")
