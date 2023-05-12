@@ -7,7 +7,7 @@ function fibonacci(num) {
     for (let i = 2; i < num; i++) {
       fibo[i] = fibo[i-2] + fibo[i-1];
     }
-    return fibo[fibo.length - 1];
+    return fibo.at(-1);
   }
   return 1;
 }
