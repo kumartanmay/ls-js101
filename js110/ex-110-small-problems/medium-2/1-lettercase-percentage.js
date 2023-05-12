@@ -47,6 +47,8 @@ function letterPercentages(sentence) {
   let lowerCase = [];
   let neither = [];
 
+// match method on a string returns an array with matching characters
+
   charsInSentence.forEach(char => {
     if (char.match(/[A-Z]/g)) {
       upperCase.push(char);
