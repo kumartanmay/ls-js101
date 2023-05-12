@@ -26,12 +26,12 @@ Rule:
 */
 
 function fibonacci(count) {
-  let series = [1, 1]
-  let index = 2;
+  let series = [1n, 1n]
+  let index = 2n;
   
   while (index < count) {
-    series.push(BigInt(series[index - 2]) + BigInt(series[index - 1]))
-    index += 1;
+    series.push(BigInt(series[index - 2n]) + BigInt(series[index - 1n]))
+    index += 1n;
   }
   return series;
 }
@@ -47,18 +47,22 @@ function findFibonacciIndexByLength(countOfDigits) {
 
   let countFibonacciElements = countOfDigits * 5n;
 
+
+
   let fibonacciSeries = fibonacci(countFibonacciElements);
-  console.log(fibonacciSeries);
+  // console.log(fibonacciSeries);
 
   let lenghtOfElements = fibonacciSeries.map(elem => elem.toString().split("").length);
-  console.log(lenghtOfElements);
+  // console.log(lenghtOfElements);
 
   return lenghtOfElements.findIndex((elem) => BigInt(elem) === countOfDigits) + 1;
+
 }
 
-// console.log(findFibonacciIndexByLength(2n));
-// console.log(findFibonacciIndexByLength(3n));
-// console.log(findFibonacciIndexByLength(10n));
-// console.log(findFibonacciIndexByLength(100n));
-// console.log(findFibonacciIndexByLength(1000n));
+
+console.log(findFibonacciIndexByLength(2n));
+console.log(findFibonacciIndexByLength(3n));
+console.log(findFibonacciIndexByLength(10n));
+console.log(findFibonacciIndexByLength(100n));
+console.log(findFibonacciIndexByLength(1000n));
 console.log(findFibonacciIndexByLength(10000n));
